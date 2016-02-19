@@ -2,3 +2,6 @@ world/*
 bak/*
 server.jar
 sekai_version.json
+logs/*
+usercache.json
+

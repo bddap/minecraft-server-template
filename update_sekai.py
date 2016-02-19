@@ -1,9 +1,13 @@
-import requests, json
+import requests, json, time
 
 def j_get(url):
 	return json.loads(requests.get(url).content)
 
-r = j_get("https://launchermeta.mojang.com/mc/game/version_manifest.json")
+try:
+	r = j_get("https://launchermeta.mojang.com/mc/game/version_manifest.json")
+except:
+	time.sleep(30)	# wait for machine to boot and connect to internet
+	r = j_get("https://launchermeta.mojang.com/mc/game/version_manifest.json")
 
 #with open("result.json",'w') as f:
 #	f.write(r.content)

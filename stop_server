@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#using examples from http://blog.lazyhacker.com/2015/03/automatically-start-minecraft-server-on.html
+#thanks lazy hacker
+
+cd ~/Desktop/Sekai
+
+tmux send -t sekai "say stopping server" ENTER
+
+tmux send -t sekai "save-all" ENTER
+
+tmux send -t sekai "stop" ENTER
+
+echo "Stopping sekai."
+
+sleep 3
+
+tmux kill-session -t sekai
+
