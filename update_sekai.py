@@ -3,7 +3,7 @@
 import requests, json, time
 
 def j_get(url):
-	return json.loads(requests.get(url).content)
+	return json.loads(requests.get(url).text)
 
 try:
 	r = j_get("https://launchermeta.mojang.com/mc/game/version_manifest.json")
@@ -12,7 +12,7 @@ except:
 	r = j_get("https://launchermeta.mojang.com/mc/game/version_manifest.json")
 
 #with open("result.json",'w') as f:
-#	f.write(r.content)
+#	f.write(r.text)
 
 latest_version = r["latest"]["snapshot"]
 
@@ -37,7 +37,7 @@ except IOError:
 
 if do_download:
 	with open("server.jar", 'w') as f:
-		f.write(requests.get(server_url).content)
+		f.write(requests.get(server_url).text)
 	
 	with open("sekai_version.json", 'w') as f:
 		json.dump({
