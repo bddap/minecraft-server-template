@@ -36,8 +36,8 @@ except IOError:
 	do_download = True
 
 if do_download:
-	with open("server.jar", 'w') as f:
-		f.write(requests.get(server_url).text)
+	with open("server.jar", 'wb') as f:
+		f.write(requests.get(server_url).content)
 	
 	with open("sekai_version.json", 'w') as f:
 		json.dump({
