@@ -9,7 +9,7 @@ tmux send -t sekai "say stopping server" ENTER
 tmux send -t sekai "save-all" ENTER
 tmux send -t sekai "stop" ENTER
 echo "Stopping sekai."
-sleep 3
+sleep 5
 
 tmux kill-session -t sekai
 
