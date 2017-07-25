@@ -1,6 +1,10 @@
 #!/bin/sh
 
-cd /home/bddap/Desktop/Sekai
+# cd directory of this script
+cd $(dirname $0)
+
+# make sure ./bak/ exists
+mkdir -p bak
 
 DATE=`date +%Y_%M_%d_%H_%M_%S`
 
@@ -8,10 +12,8 @@ echo "Starting backup..."
 echo $DATE
 
 tmux send -t sekai "say Backing up server. date=$DATE." ENTER
-
 tmux send -t sekai "save-off" ENTER
 tar -czvf bak/$DATE.tar.gz world
 tmux send -t sekai "save-on" ENTER
-
 tmux send -t sekai "say Done backing up server." ENTER
 
