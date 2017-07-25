@@ -1,15 +1,20 @@
 #!/bin/sh
 
-#using examples from http://blog.lazyhacker.com/2015/03/automatically-start-minecraft-server-on.html
-#thanks lazy hacker
+# using tmux example from http://blog.lazyhacker.com/2015/03/automatically-start-minecraft-server-on.html
 
-cd ~/Desktop/Sekai
+# attempt to port forward
+upnpc -r 25565 tcp 25565 udp
 
+# cd directory of this script
+cd $(dirname $0)
+
+# install the latest server.jar
 python ./update_sekai.py
 
+# create a new tmux for the server to run in
 tmux new-session -s sekai -d
 
+# start the server
 tmux send -t sekai "java -Xms1G -Xmx3G -jar server.jar nogui" ENTER
 
-#ava -Xms1G -Xmx3G -jar server.jar nogui
 
