@@ -9,7 +9,7 @@ upnpc -r 25565 tcp 25565 udp
 cd $(dirname $0)
 
 # install the latest server.jar
-python ./update_sekai.py
+./update_sekai.py
 
 # create a new tmux for the server to run in
 tmux new-session -s sekai -d

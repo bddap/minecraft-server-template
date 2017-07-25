@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import requests, json, time
 
 def j_get(url):
